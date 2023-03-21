@@ -1,25 +1,31 @@
-import logo from './logo.svg';
 import './App.css';
+import Form from './component/Form';
+import Footer from './component/Footer';
+import Navigation from './component/Navigation';
+import React, { useState } from 'react';
+
 
 function App() {
+  let [Modes,setMode]=useState('light')
+  const togglemode=()=>{
+    if(Modes==='light'){
+      setMode('dark');
+    }
+    else{
+      setMode('light');
+    }
+  }
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+    <>
+    <Navigation mode={Modes} togglemode={togglemode}/>
+    <Form label="Enter your text..."/>
+    <Footer/>
+     </>
+  );}
 
 export default App;
+
+
+
+
+
